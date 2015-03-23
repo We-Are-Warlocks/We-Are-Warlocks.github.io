@@ -5,6 +5,38 @@
     <title>信用卡计算器</title>
 </head>
 <body>
-    一个空的网页
+    <script>
+        window.onload = function() {
+            console.log("page loaded")
+            var calcButton = document.getElementById("calc");
+            calcButton.onclick = function() {
+                console.log("calc clicked");
+                var money = document.getElementById("money").value;
+                var rate = document.getElementById("rate").value;
+                console.log(money);
+                console.log(rate);
+                var atLeast = 30; // 最少30元
+                var cost = money * rate;
+                if(cost < atLeast) {
+                    cost = atLeast;
+                }
+                var output = document.getElementById("output");
+                output.innerHTML = cost.toString();
+            }
+        }
+    </script>
+    <div id="cash">
+        <h3>取现</h3>
+        <div style="width: 100%">
+            金额: <input id="money" type="text" name="money" value="10000"/>
+            利率: <input id="rate" type="text" name="rate" value="0.01"/>
+            手续费方案: <input type="text" name="commission" value="中信"/>
+            <input id="calc" type="button" value="计算">
+        </div>
+        <h3>手续费</h3>
+        <div style="width: 100%" id = "output">
+
+        </div>
+    </div>
 </body>
 </html>
